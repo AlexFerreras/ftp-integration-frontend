@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Container from "@material-ui/core/Container";
+import Header from "./layout/Header";
 
-function App() {
+import Upload from "./layout/Upload";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+const styles = {
+  paddingTop: 0,
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Container maxWidth="xl" style={styles}>
+        <Router>
+          <Switch>
+            <Route path="/">
+              <h1> Integracion FTP </h1>
+              <Upload />
+            </Route>
+          </Switch>
+        </Router>
+      </Container>
     </div>
   );
-}
+};
 
 export default App;
